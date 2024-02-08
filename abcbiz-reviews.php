@@ -41,15 +41,29 @@ class ABCBiz_Reviews
 
     public function __construct()
     {
+             
         add_action('plugins_loaded', array($this, 'load_textdomain'));
         add_action('wp_enqueue_scripts', array($this, 'enqueue_public_styles_scripts'));
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_styles_scripts'));
+
+        $this->ABCBizReviews_include_files(); //include extranal files
+        $this->initializeComponents(); // Initialize Components class  
     }
 
     public function load_textdomain() {
         load_plugin_textdomain('abcbiz-reviews', false, ABCBIZREV_PATH . 'languages/');
     }
+    
+    //include extranal files
+    public function ABCBizReviews_include_files() {
+        require_once ABCBIZREV_PATH . 'admin/inc/settings.php';
+    }
 
+    private function initializeComponents() {
+        if (class_exists('\ABCBizRev\Admin\Inc\Settings\ABCBizRev_Settings')) {
+            new \ABCBizRev\Admin\Inc\Settings\ABCBizRev_Settings();
+        }
+    }
     public function enqueue_public_styles_scripts()
     {
         wp_enqueue_style('abcbizrev-frontend-style', ABCBIZREV_ASSETS_URL . 'css/style.css', array(), ABCBIZREV_VERSION);
