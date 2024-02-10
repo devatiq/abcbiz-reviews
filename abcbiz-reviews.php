@@ -46,8 +46,8 @@ class ABCBiz_Reviews
         add_action('wp_enqueue_scripts', array($this, 'enqueue_public_styles_scripts'));
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_styles_scripts'));
 
-        $this->ABCBizReviews_include_files(); //include extranal files
-        $this->initializeComponents(); // Initialize Components class  
+        $this->ABCBizRev_include_files(); //include extranal files
+        $this->ABCBizRevInitializeComponents(); // Initialize Components class  
     }
 
     public function load_textdomain() {
@@ -55,14 +55,27 @@ class ABCBiz_Reviews
     }
     
     //include extranal files
-    public function ABCBizReviews_include_files() {
+    public function ABCBizRev_include_files() {
         require_once ABCBIZREV_PATH . 'admin/inc/settings.php';
+        require_once ABCBIZREV_PATH . 'inc/PostTypes/post-types.php';
+        require_once ABCBIZREV_PATH . 'inc/FeedbackForm/FeedbackForm.php';
+        require_once ABCBIZREV_PATH . 'inc/CustomFields/CustomFields.php';
     }
 
-    private function initializeComponents() {
+    private function ABCBizRevInitializeComponents() {
         if (class_exists('\ABCBizRev\Admin\Inc\Settings\ABCBizRev_Settings')) {
             new \ABCBizRev\Admin\Inc\Settings\ABCBizRev_Settings();
+        } 
+        if (class_exists('\ABCBizRev\Inc\PostTypes\ABCBizRevPostTypes')) {
+            new \ABCBizRev\Inc\PostTypes\ABCBizRevPostTypes();
         }
+        if (class_exists('\ABCBizRev\Inc\FeedbackForm\FeedbackFormHandler')) {
+            new \ABCBizRev\Inc\FeedbackForm\FeedbackFormHandler();
+        }
+        if (class_exists('\ABCBizRev\Inc\CustomFields\ABCBizRevCustomFields')) {
+            new \ABCBizRev\Inc\CustomFields\ABCBizRevCustomFields();
+        }
+        
     }
     public function enqueue_public_styles_scripts()
     {
@@ -70,8 +83,7 @@ class ABCBiz_Reviews
         wp_enqueue_script('abcbizrev-frontend-script', ABCBIZREV_ASSETS_URL . 'js/main.js', array('jquery'), ABCBIZREV_VERSION, true);
     }
 
-    public function enqueue_admin_styles_scripts($hook)
-    {
+    public function enqueue_admin_styles_scripts($hook){
         wp_enqueue_style('abcbizrev-admin-style', ABCBIZREV_ADMIN_ASSETS_URL . 'css/style.css', array(), ABCBIZREV_VERSION);
         wp_enqueue_script('abcbizrev-admin-script', ABCBIZREV_ADMIN_ASSETS_URL . 'js/main.js', array('jquery'), ABCBIZREV_VERSION, true);
     }
