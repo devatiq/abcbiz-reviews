@@ -10,36 +10,37 @@ class ABCBizRev_Settings {
     }
 
     public function abcbizrev_add_admin_menu() {
-        add_menu_page(
-            __('ABCBiz Reviews Settings', 'abcbiz-reviews'), 
-            __('ABCBiz Reviews', 'abcbiz-reviews'), 
-            'manage_options', 
-            'abcbizrev_reviews_settings', 
-            array($this, 'abcbizrev_create_settings_page'),
-            'dashicons-star-filled', 
-            6
-        );
-
-        // Home Submenu
+        // Home Submenu under the custom post type
         add_submenu_page(
-            'abcbizrev_reviews_settings',
+            'edit.php?post_type=abcbizrev_reviews', 
             __('Home', 'abcbiz-reviews'),
             __('Home', 'abcbiz-reviews'),
             'manage_options',
             'abcbizrev_reviews_home',
             array($this, 'abcbizrev_create_home_page')
         );
-
-        // Style Submenu
+    
+        // Style Submenu under the custom post type
         add_submenu_page(
-            'abcbizrev_reviews_settings',
+            'edit.php?post_type=abcbizrev_reviews', 
             __('Style', 'abcbiz-reviews'),
             __('Style', 'abcbiz-reviews'),
             'manage_options',
             'abcbizrev_reviews_style',
             array($this, 'abcbizrev_create_style_page')
         );
+        // Settings Submenu under the custom post type
+        add_submenu_page(
+            'edit.php?post_type=abcbizrev_reviews', 
+            __('ABCBiz Reviews Settings', 'abcbiz-reviews'), 
+            __('Settings', 'abcbiz-reviews'), 
+            'manage_options', 
+            'abcbizrev_reviews_settings', 
+            array($this, 'abcbizrev_create_settings_page')
+        );
+            
     }
+    
 
     public function abcbizrev_create_settings_page() {
         ?>
