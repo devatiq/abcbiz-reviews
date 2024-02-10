@@ -11,6 +11,7 @@ class FeedbackFormHandler {
     }
 
     public function display_feedback_form() {
+        // Form HTML
         ?>
         <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
             <?php wp_nonce_field('abcbizrev_feedback_nonce_action', 'abcbizrev_feedback_nonce'); ?>
@@ -43,29 +44,41 @@ class FeedbackFormHandler {
     }
 
     public function handle_submission() {
+        // Check nonce for security
         if (!isset($_POST['abcbizrev_feedback_nonce']) || !wp_verify_nonce($_POST['abcbizrev_feedback_nonce'], 'abcbizrev_feedback_nonce_action')) {
             wp_die('Security check failed');
         }
-
+    
+        // Server-side validation for required fields
+        $required_fields = ['abcbizrev_name', 'abcbizrev_email', 'abcbizrev_subject', 'abcbizrev_comments', 'abcbizrev_rating'];
+        foreach ($required_fields as $field) {
+            if (empty($_POST[$field])) {                
+                wp_die('Please fill all required fields.');
+            }
+        }
+    
+        // Sanitize and prepare post data
         $post_data = [
             'post_title'   => sanitize_text_field($_POST['abcbizrev_subject']),
             'post_content' => sanitize_textarea_field($_POST['abcbizrev_comments']),
             'post_status'  => 'pending',
-            'post_type'    => 'abcbizrev_reviews',
+            'post_type'    => 'abcbizrev_reviews', 
             'meta_input'   => [
-                'abcbizrev_name' => sanitize_text_field($_POST['abcbizrev_name']),
-                'abcbizrev_email' => sanitize_email($_POST['abcbizrev_email']),
-                'abcbizrev_rating' => intval($_POST['abcbizrev_rating']),
+                'abcbizrev_review_name' => sanitize_text_field($_POST['abcbizrev_name']),
+                'abcbizrev_review_email' => sanitize_email($_POST['abcbizrev_email']),
+                'abcbizrev_review_rating' => intval($_POST['abcbizrev_rating']),
             ],
         ];
-
+    
+        // Insert the post
         $post_id = wp_insert_post($post_data);
-
+    
         if ($post_id) {
+            // Redirect to a thank you page or display a success message
             wp_redirect(home_url('/thank-you-for-your-feedback/'));
             exit;
         } else {
             wp_die('An error occurred while submitting your feedback.');
         }
-    }
+    }    
 }
