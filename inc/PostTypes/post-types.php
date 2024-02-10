@@ -10,9 +10,9 @@ class ABCBIZRevPostTypes {
 
     public function register_custom_post_type() {
         $labels = array(
-            'name'                  => _x( 'Reviews', 'abcbiz-reviews'),
+            'name'                  => _x( 'ABCBiz Reviews', 'abcbiz-reviews'),
             'singular_name'         => _x( 'Review', 'abcbiz-reviews'),
-            'menu_name'             => __( 'Reviews', 'abcbiz-reviews'),
+            'menu_name'             => __( 'ABCBiz Reviews', 'abcbiz-reviews'),
             'name_admin_bar'        => __( 'ABCBizRev Review', 'abcbiz-reviews'),
             'archives'              => __( 'Review Archives', 'abcbiz-reviews'),
             'attributes'            => __( 'Review Attributes', 'abcbiz-reviews'),

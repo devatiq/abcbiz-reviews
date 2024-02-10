@@ -10,25 +10,7 @@ class ABCBizRev_Settings {
     }
 
     public function abcbizrev_add_admin_menu() {
-        // Home Submenu under the custom post type
-        add_submenu_page(
-            'edit.php?post_type=abcbizrev_reviews', 
-            __('Home', 'abcbiz-reviews'),
-            __('Home', 'abcbiz-reviews'),
-            'manage_options',
-            'abcbizrev_reviews_home',
-            array($this, 'abcbizrev_create_home_page')
-        );
-    
-        // Style Submenu under the custom post type
-        add_submenu_page(
-            'edit.php?post_type=abcbizrev_reviews', 
-            __('Style', 'abcbiz-reviews'),
-            __('Style', 'abcbiz-reviews'),
-            'manage_options',
-            'abcbizrev_reviews_style',
-            array($this, 'abcbizrev_create_style_page')
-        );
+
         // Settings Submenu under the custom post type
         add_submenu_page(
             'edit.php?post_type=abcbizrev_reviews', 
@@ -50,23 +32,6 @@ class ABCBizRev_Settings {
         <?php
     }
 
-    public function abcbizrev_create_home_page() {
-        ?>
-        <div class="wrap">
-            <h2><?php _e('Home', 'abcbiz-reviews'); ?></h2>
-            <p><?php _e('Welcome to the Home page of ABCBiz Reviews Settings.', 'abcbiz-reviews'); ?></p>
-        </div>
-        <?php
-    }
-
-    public function abcbizrev_create_style_page() {
-        ?>
-        <div class="wrap">
-            <h2><?php _e('Style', 'abcbiz-reviews'); ?></h2>
-            <p><?php _e('Customize the appearance of ABCBiz Reviews.', 'abcbiz-reviews'); ?></p>
-        </div>
-        <?php
-    }
 
     public function abcbizrev_settings_init() {
         // Register a settings group and a settings field for storing your settings

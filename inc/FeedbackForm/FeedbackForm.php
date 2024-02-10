@@ -55,7 +55,7 @@ class FeedbackFormHandler
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5">5</option>
+                    <option value="5" selected>5</option>
                 </select>
             </p>
 
@@ -77,6 +77,11 @@ class FeedbackFormHandler
             if (empty($_POST[$field])) {
                 wp_die('Please fill all required fields.');
             }
+        } 
+
+        // Enhanced email validation
+        if (!is_email($_POST['abcbizrev_email'])) {
+            wp_die(__('Please enter a valid email address.', 'abcbiz-reviews'));
         }
 
         // Sanitize and prepare post data
