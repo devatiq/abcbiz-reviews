@@ -67,7 +67,7 @@ class FeedbackFormHandler
     public function handle_submission()
     {
         // Check nonce for security
-        if (!isset($_POST['abcbizrev_feedback_nonce']) || !wp_verify_nonce($_POST['abcbizrev_feedback_nonce'], 'abcbizrev_feedback_nonce_action')) {
+        if (!isset($_POST['abcbizrev_feedback_nonce']) || !wp_verify_nonce(sanitize_text_field( wp_unslash ($_POST['abcbizrev_feedback_nonce'])), 'abcbizrev_feedback_nonce_action')) {
             wp_die('Security check failed');
         }
 

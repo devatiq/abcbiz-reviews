@@ -48,7 +48,7 @@ class ABCBIZRevCustomFields {
     
     public function save_custom_meta_boxes($post_id, $post) {
         // Verify the nonce before proceeding.
-        if (!isset($_POST['abcbizrev_custom_fields_nonce']) || !wp_verify_nonce($_POST['abcbizrev_custom_fields_nonce'], 'abcbizrev_custom_fields')) {
+        if (!isset($_POST['abcbizrev_custom_fields_nonce']) || !wp_verify_nonce(sanitize_text_field( wp_unslash ($_POST['abcbizrev_custom_fields_nonce'])), 'abcbizrev_custom_fields')) {
             return $post_id;
         }
 
