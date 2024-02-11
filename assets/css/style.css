@@ -1,0 +1,147 @@
+
+/*----------------------------------------------
+ * Testimonial
+ * ---------------------------------------------*/
+
+ .abcbiz-testimonial-single-item {
+    background-color: #e6ebf2;
+    padding: 30px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.abcbiz-testimonial-header {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#abcbiz-testimonial-client-img img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    max-width: 100% !important;
+    object-fit: cover;
+    object-position: top;
+}
+
+.abcbiz-testimonial-client-info h3 {
+    color: #ffff;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3em;
+    margin-bottom: 10px;
+}
+
+.abcbiz-testimonial-client-info p {
+    color: #448E08;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3em;
+    margin-bottom: 0;
+}
+
+.abcbiz-testimonial-content p {
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    margin-top: 20px;
+}
+
+.abcbiz-testimonial-rating {
+    margin-top: 20px;
+}
+
+.abcbiz-testimonial-rating i {
+    color: #D3A500;
+    font-size: 14px;
+    font-weight: 400;
+    margin-right: 5px;
+}
+
+.abcbiz-testimonial-quote {
+    position: absolute;
+    top: 40px;
+    right: 65px;
+}
+.swiper.abcbiz-testimonial-slider {
+    padding-bottom: 65px;
+}
+.abcbiz-testimonial-slider-nav-bar button.abcbiz-testimonial-arrow {
+    cursor: pointer;
+    border: 0; 
+    position: absolute;
+    top: 40%;
+    z-index: 1;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.abcbiz-testimonial-slider-nav-bar button.abcbiz-testimonial-arrow.abcbiz-testimonial-arrow-right {
+    right: -60px;
+    outline: none;
+}
+.abcbiz-testimonial-slider-nav-bar button.abcbiz-testimonial-arrow svg {
+    width: 40px;
+    height: 40px;
+    background-color: #6247ed;
+    border-radius: 50%;
+    fill: #fff;
+    padding: 8px;
+}
+.abcbiz-testimonial-slider-nav-bar button.abcbiz-testimonial-arrow.abcbiz-testimonial-arrow-right svg {
+    transform: rotate(180deg);
+}
+.abcbiz-testimonial-slider-nav-bar button.abcbiz-testimonial-arrow.abcbiz-testimonial-arrow-left {
+    left: -60px;
+    outline: none;
+}
+.abcbiz-testimonial-slider .abcbiz-testimonial-arrow.slick-disabled,
+.abcbiz-testimonial-slider .abcbiz-testimonial-arrow.slick-disabled
+{
+    opacity: .25;
+}
+.abcbiz-testimonial-slider-nav-bar .abcbiz-testimonial-arrow:hover svg {
+    background-color: #FFAB01;
+    color: #fff;
+    fill: #fff;
+    transition: 0.3s ease;
+}
+ .swiper-pagination.abcbiz-testimonial-slider-pagination{    
+    display: flex;
+    justify-content: center;
+}
+.swiper-pagination.abcbiz-testimonial-slider-pagination .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.swiper-pagination.abcbiz-testimonial-slider-pagination .swiper-pagination-bullet-active {
+    background-color:#448E08;
+}
+
+/*---------------------------
+* Testimonial grids
+-----------------------------*/
+.abcbiz-testimonial-grids {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.abcbiz-testimonial-grids .abcbiz-testimonial-single-item {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.abcbiz-elementor-pagination {
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.abcbiz-elementor-pagination * {
+    display: inline-block;
+}

@@ -4,7 +4,7 @@ namespace ABCBizRev\Inc\CustomFields;
 defined('ABSPATH') or die('This is not the place you deserve!');
 
 
-class ABCBIZRevCustomFields {
+class CustomFields {
     public function __construct() {
         add_action('add_meta_boxes', array($this, 'add_custom_meta_boxes'));
         add_action('save_post', array($this, 'save_custom_meta_boxes'), 10, 2);

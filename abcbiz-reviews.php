@@ -60,20 +60,28 @@ class ABCBiz_Reviews
         require_once ABCBIZREV_PATH . 'inc/PostTypes/post-types.php';
         require_once ABCBIZREV_PATH . 'inc/FeedbackForm/FeedbackForm.php';
         require_once ABCBIZREV_PATH . 'inc/CustomFields/CustomFields.php';
+        require_once ABCBIZREV_PATH . 'inc/FrontEnd/Templates/GridReview.php';
+        require_once ABCBIZREV_PATH . 'inc/ShortCodes/ShortCodes.php';
     }
 
     private function ABCBizRevInitializeComponents() {
         if (class_exists('\ABCBizRev\Admin\Inc\Settings\ABCBizRev_Settings')) {
             new \ABCBizRev\Admin\Inc\Settings\ABCBizRev_Settings();
         } 
-        if (class_exists('\ABCBizRev\Inc\PostTypes\ABCBizRevPostTypes')) {
-            new \ABCBizRev\Inc\PostTypes\ABCBizRevPostTypes();
+        if (class_exists('\ABCBizRev\Inc\PostTypes\PostTypes')) {
+            new \ABCBizRev\Inc\PostTypes\PostTypes();
         }
         if (class_exists('\ABCBizRev\Inc\FeedbackForm\FeedbackFormHandler')) {
             new \ABCBizRev\Inc\FeedbackForm\FeedbackFormHandler();
         }
-        if (class_exists('\ABCBizRev\Inc\CustomFields\ABCBizRevCustomFields')) {
-            new \ABCBizRev\Inc\CustomFields\ABCBizRevCustomFields();
+        if (class_exists('\ABCBizRev\Inc\CustomFields\CustomFields')) {
+            new \ABCBizRev\Inc\CustomFields\CustomFields();
+        }   
+        if (class_exists('\ABCBizRev\Inc\FrontEnd\Templates\GridReview\GridReview')) {
+            new \ABCBizRev\Inc\FrontEnd\Templates\GridReview\GridReview();
+        }    
+        if (class_exists('\ABCBizRev\Inc\ShortCodes\ReviewShortcode')) {
+            new \ABCBizRev\Inc\ShortCodes\ReviewShortcode();
         }
         
     }

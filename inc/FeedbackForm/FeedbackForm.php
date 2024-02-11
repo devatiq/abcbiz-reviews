@@ -5,15 +5,25 @@ defined('ABSPATH') or die;
 
 class FeedbackFormHandler
 {
+ 
+
     public function __construct()
-    {
-        add_shortcode('abcbizrev_feedback_form', [$this, 'display_feedback_form']);
+    {    
         add_action('admin_post_nopriv_submit_abcbizrev_feedback', [$this, 'handle_submission']); // For non-logged-in users
         add_action('admin_post_submit_abcbizrev_feedback', [$this, 'handle_submission']); // For logged-in users
     }
+     
 
-    public function display_feedback_form()
+    public function display_feedback_form($atts = [])
     {
+        // Define default values for the attributes
+        $defaults = [           
+            'btn_text' => 'Submit Feedback', 
+        ];
+
+        // Override defaults with user-provided attributes
+        $atts = shortcode_atts($defaults, $atts, 'abcbizrev_feedback_form');
+
         // Form HTML
         ?>
         <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
@@ -59,7 +69,7 @@ class FeedbackFormHandler
                 </select>
             </p>
 
-            <input type="submit" value="Submit Feedback">
+            <input type="submit" value="<?php echo esc_attr($atts['btn_text']); ?>">
         </form>
         <?php
     }
@@ -102,7 +112,7 @@ class FeedbackFormHandler
 
         if ($post_id) {
             // Redirect to a thank you page or display a success message
-            wp_redirect(home_url('/thank-you-for-your-feedback/'));
+            wp_redirect(home_url('/'));
             exit;
         } else {
             wp_die('An error occurred while submitting your feedback.');

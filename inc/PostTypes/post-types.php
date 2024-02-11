@@ -3,7 +3,7 @@ namespace ABCBizRev\Inc\PostTypes;
 
 defined('ABSPATH') or die('This is not the place you deserve!');
 
-class ABCBIZRevPostTypes {
+class PostTypes {
     public function __construct() {
         add_action( 'init', array( $this, 'register_custom_post_type' ) );
     }
