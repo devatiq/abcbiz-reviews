@@ -11,7 +11,7 @@ class ReviewShortcode {
     public function __construct() {
 
         add_shortcode('abcbizrev_feedback_form', [$this, 'display_feedback_form']); // Display feedback form
-        add_shortcode('abcbizrev_grid_review', [$this, 'display_grid_review']); // Display grid review
+        add_shortcode('abcbizrev_reviews', [$this, 'display_grid_review']); // Display grid review
       
     }
     
