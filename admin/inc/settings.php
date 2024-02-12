@@ -29,7 +29,6 @@ class ABCBizRev_Settings {
                 settings_errors();
                 settings_fields('abcbizrev_reviews');
                 do_settings_sections('abcbizrev_reviews');
-                wp_nonce_field('abcbizrev_reviews_setting_fields_action', 'abcbizrev_reviews_settings_nonce');
                 submit_button();
                 ?>
             </form>          
@@ -38,8 +37,9 @@ class ABCBizRev_Settings {
     }
 
     public function abcbizrev_settings_init() {
-        // Register each setting individually if saving them as separate options
-        register_setting('abcbizrev_reviews', 'abcbizrev_redirect_url', array($this, 'validate_input'));
+        register_setting('abcbizrev_reviews', 'abcbizrev_redirect_url', ['sanitize_callback' => 'esc_url_raw']);
+        register_setting('abcbizrev_reviews', 'abcbizrev_review_status', ['sanitize_callback' => 'sanitize_text_field']);
+
 
         add_settings_section(
             'abcbizrev_reviews_main_section', 
@@ -47,13 +47,22 @@ class ABCBizRev_Settings {
             array($this, 'abcbizrev_reviews_main_section_cb'), 
             'abcbizrev_reviews'
         );
-
+        //redirect url
         add_settings_field(
             'abcbizrev_redirect_url',
             __('Redirect URL', 'abcbiz-reviews'),
             array($this, 'abcbizrev_redirect_url_field_cb'),
             'abcbizrev_reviews',
             'abcbizrev_reviews_main_section'
+        );
+
+        // post status
+        add_settings_field(
+            'abcbizrev_review_status', // ID
+            __('Default Review Status', 'abcbiz-reviews'), // Title
+            array($this, 'abcbizrev_review_status_field_cb'), // Callback function
+            'abcbizrev_reviews', // Page
+            'abcbizrev_reviews_main_section' // Section           
         );
     }
 
@@ -64,14 +73,17 @@ class ABCBizRev_Settings {
     public function abcbizrev_redirect_url_field_cb() {
         $redirect_url = get_option('abcbizrev_redirect_url');
         echo '<input type="text" id="abcbizrev_redirect_url" class="regular-text" name="abcbizrev_redirect_url" value="' . esc_attr($redirect_url) . '" />';
-    }
+    }  
 
-    public function validate_input($input) {
-        //nonce verification for security
-        check_admin_referer('abcbizrev_reviews_setting_fields_action', 'abcbizrev_reviews_settings_nonce');
-
-        // Validate and sanitize the redirect URL
-        $sanitized_input = esc_url_raw($input);
-        return $sanitized_input;
+    public function abcbizrev_review_status_field_cb() {
+        $post_status = get_option('abcbizrev_review_status', 'pending'); // Default to 'pending' if not set
+        ?>
+        <select id="abcbizrev_review_status" name="abcbizrev_review_status">
+            <option value="publish" <?php selected($post_status, 'publish'); ?>><?php echo esc_html__('Publish', 'abcbiz-reviews'); ?></option>
+            <option value="pending" <?php selected($post_status, 'pending'); ?>><?php echo esc_html__('Pending', 'abcbiz-reviews'); ?></option>
+            <option value="draft" <?php selected($post_status, 'draft'); ?>><?php echo esc_html__('Draft', 'abcbiz-reviews'); ?></option>
+        </select>
+        <?php
     }
+    
 }

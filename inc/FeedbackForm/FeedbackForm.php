@@ -94,11 +94,12 @@ class FeedbackFormHandler
             wp_die(__('Please enter a valid email address.', 'abcbiz-reviews'));
         }
 
+        $post_status = get_option('abcbizrev_review_status', 'pending'); // Default to 'pending' if not set
         // Sanitize and prepare post data
         $post_data = [
             'post_title' => sanitize_text_field($_POST['abcbizrev_subject']),
             'post_content' => sanitize_textarea_field($_POST['abcbizrev_comments']),
-            'post_status' => 'pending',
+            'post_status' => $post_status,
             'post_type' => 'abcbizrev_reviews',
             'meta_input' => [
                 'abcbizrev_review_name' => sanitize_text_field($_POST['abcbizrev_name']),
