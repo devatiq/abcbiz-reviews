@@ -111,8 +111,15 @@ class FeedbackFormHandler
         $post_id = wp_insert_post($post_data);
 
         if ($post_id) {
-            // Redirect to a thank you page or display a success message
-            wp_redirect(home_url('/'));
+
+            $redirect_url = get_option('abcbizrev_redirect_url');        
+            // If a redirect URL is set and is a valid URL, redirect to it. Otherwise, redirect to the home page.
+            if (!empty($redirect_url) && filter_var($redirect_url, FILTER_VALIDATE_URL)) {
+                wp_redirect($redirect_url);
+            } else {
+                wp_redirect(home_url('/'));
+            }
+            
             exit;
         } else {
             wp_die('An error occurred while submitting your feedback.');
