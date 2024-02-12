@@ -4,8 +4,8 @@
  * Plugin URI: https://github.com/devatiq/abcbiz-reviews
  * Description: A plugin for adding and displaying business reviews and feedback.
  * Version: 1.0
- * Author: SupreoX Limited
- * Author URI: https://supreox.com
+ * Author: ABCPlugin
+ * Author URI: https://abcplugin.com/
  * Text Domain: abcbiz-reviews
  * Domain Path: /languages
  * License: GPLv2
