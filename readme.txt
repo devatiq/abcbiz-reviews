@@ -37,7 +37,7 @@ ABCBiz Reviews introduces two intuitive shortcodes to incorporate review functio
 
 1. `[abcbizrev_feedback_form]` - Embeds a feedback form into your posts, pages, or widgets, allowing visitors to submit their reviews directly on your website. This shortcode does not require any attributes and can be added simply by inserting `[abcbizrev_feedback_form]` where you want the form to appear.
 
-2. `[abcbizrev_reviews]` - Displays a grid of submitted reviews, making it easy for you to showcase real customer feedback on any post, page, or widget area. Customize the appearance of the reviews grid by passing attributes to this shortcode, such as `[abcbizrev_reviews limit="5"]` to limit the number of reviews displayed.
+2. `[abcbizrev_reviews]` - Displays a grid of submitted reviews, making it easy for you to showcase real customer feedback on any post, page, or widget area.
 
 == Frequently Asked Questions ==
 
@@ -68,9 +68,3 @@ Yes, ABCBiz Reviews offers options for moderation and review approval to ensure 
 
 = 1.0 =
 Initial release. Please provide feedback and report any issues through the plugin support forum.
-
-== Arbitrary Section ==
-
-For more information and detailed documentation about using ABCBiz Reviews, please visit our [GitHub repository](https://github.com/devatiq/abcbiz-reviews).
-
-For professional support and custom features, visit our website: [SupreoX Limited](https://supreox.com).
