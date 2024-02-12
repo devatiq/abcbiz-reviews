@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: ABCBiz Reviews
- * Plugin URI: https://github.com/devatiq/abcbiz-reviews
+ * Plugin URI: https://abcplugin.com/abcbiz-reviews/
  * Description: A plugin for adding and displaying business reviews and feedback.
  * Version: 1.0
  * Author: ABCPlugin
@@ -10,7 +10,6 @@
  * Domain Path: /languages
  * License: GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * GitHub Plugin URI: https://github.com/devatiq/abcbiz-reviews
  * Prefix: abcbizrev
  */
 

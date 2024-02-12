@@ -7,7 +7,6 @@ Stable tag: 1.0
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Plugin URI: https://github.com/devatiq/abcbiz-reviews
 
 ABCBiz Reviews is a comprehensive plugin for adding and displaying business reviews and feedback on your WordPress site.
 
