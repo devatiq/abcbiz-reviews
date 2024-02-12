@@ -2,7 +2,7 @@
 Contributors: abcplugins
 Tags: reviews, business reviews, feedback, testimonials
 Requires at least: 5.2
-Tested up to: 5.9
+Tested up to: 6.4.3
 Stable tag: 1.0
 Requires PHP: 7.2
 License: GPLv2 or later
