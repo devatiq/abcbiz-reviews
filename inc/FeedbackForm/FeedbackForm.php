@@ -31,35 +31,35 @@ class FeedbackFormHandler
             <input type="hidden" name="action" value="submit_abcbizrev_feedback">
 
             <p><label for="abcbizrev_name">
-                    <?php _e('Name:', 'abcbiz-reviews'); ?>
+                    <?php esc_html_e('Name:', 'abcbiz-reviews'); ?>
                 </label>
                 <input type="text" id="abcbizrev_name" name="abcbizrev_name" required>
             </p>
 
             <p><label for="abcbizrev_email">
-                    <?php _e('Email:', 'abcbiz-reviews'); ?>
+                    <?php esc_html_e('Email:', 'abcbiz-reviews'); ?>
                 </label>
                 <input type="email" id="abcbizrev_email" name="abcbizrev_email" required>
             </p>
 
             <p><label for="abcbizrev_subject">
-                    <?php _e('Subject:', 'abcbiz-reviews'); ?>
+                    <?php esc_html_e('Subject:', 'abcbiz-reviews'); ?>
                 </label>
                 <input type="text" id="abcbizrev_subject" name="abcbizrev_subject" required>
             </p>
 
             <p><label for="abcbizrev_comments">
-                    <?php _e('Comments:', 'abcbiz-reviews'); ?>
+                    <?php esc_html_e('Comments:', 'abcbiz-reviews'); ?>
                 </label>
                 <textarea id="abcbizrev_comments" name="abcbizrev_comments" required></textarea>
             </p>
 
             <p><label for="abcbizrev_rating">
-                    <?php _e('Rating:', 'abcbiz-reviews'); ?>
+                    <?php esc_html_e('Rating:', 'abcbiz-reviews'); ?>
                 </label>
                 <select id="abcbizrev_rating" name="abcbizrev_rating" required>
                     <option value="">
-                        <?php _e('Select a rating', 'abcbiz-reviews'); ?>
+                        <?php esc_html_e('Select a rating', 'abcbiz-reviews'); ?>
                     </option>
                     <option value="1">1</option>
                     <option value="2">2</option>
