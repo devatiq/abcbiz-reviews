@@ -67,7 +67,7 @@ class ABCBizRev_Settings {
     }
 
     public function abcbizrev_reviews_main_section_cb() {
-        echo '<p>' . __('Set your preferences for the ABCBiz Reviews plugin.', 'abcbiz-reviews') . '</p>';
+        echo '<p>' . esc_html__('Set your preferences for the ABCBiz Reviews plugin.', 'abcbiz-reviews') . '</p>';
     }
 
     public function abcbizrev_redirect_url_field_cb() {
