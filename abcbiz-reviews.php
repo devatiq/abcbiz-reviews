@@ -27,7 +27,7 @@ define('ABCBIZREV_URL', plugin_dir_url(__FILE__));
 define('ABCBIZREV_ASSETS_URL', plugin_dir_url(__FILE__) . 'assets/');
 define('ABCBIZREV_ADMIN_ASSETS_URL', plugin_dir_url(__FILE__) . 'admin/assets/');
 
-class ABCBiz_Reviews
+class ABCBIZREV_Reviews
 {
     protected static $instance = null;
 
@@ -97,4 +97,4 @@ class ABCBiz_Reviews
 
 }
 // Automatically initialize the plugin.
-ABCBiz_Reviews::get_instance();
+ABCBIZREV_Reviews::get_instance();
