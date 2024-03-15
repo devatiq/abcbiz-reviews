@@ -47,7 +47,7 @@ class CustomFields
         for ($i = 1; $i <= 5; $i++) {
             // Check if rating is set or not. If not set, default to 5.
             $selected = selected($rating ? $rating : 5, $i, false);
-            echo '<option value="' . esc_attr($i) . '"' . $selected . '>' . esc_html($i) . '</option>';
+            echo '<option value="' . esc_attr($i) . '"' . esc_html($selected) . '>' . esc_html($i) . '</option>';
         }
         echo '</select></p>';
 
