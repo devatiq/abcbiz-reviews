@@ -1,10 +1,10 @@
 === ABCBiz Reviews ===
-Contributors: abcplugins
+Contributors: abcplugins, atiqbd4ever, supreoxltd
 Tags: reviews, business reviews, feedback, testimonials
-Requires at least: 5.2
-Tested up to: 6.4.3
-Stable tag: 1.0
-Requires PHP: 7.2
+Requires at least: 6.0
+Tested up to: 6.5
+Stable tag: 1.0.0
+Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,6 +15,7 @@ ABCBiz Reviews is a comprehensive plugin for adding and displaying business revi
 ABCBiz Reviews allows WordPress site owners to easily add business reviews and feedback sections to their site. This plugin offers a simple way to manage and display customer reviews, enhancing trust and transparency for your business.
 
 Key Features:
+- Get Customer Reviews Using Feedback Form
 - Easy to add and manage business reviews.
 - Display reviews anywhere on your site using shortcodes.
 - Customizable review form fields.
